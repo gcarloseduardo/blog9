@@ -1,0 +1,293 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo%} nosotros {%endblock titulo%}
+
+{% block contenido%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ZenBlog Bootstrap Template - About</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{%static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{%static 'assets/css/variables.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/css/main.css' %}" rel="stylesheet">
+
+  
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="/#" class="logo d-flex align-items-center">
+       <img src="{% static 'img/diamond.png'%}" alt=""> 
+        <h1>HARD PIXEL</h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="/#">Inicio</a></li>
+          
+          <li><a href="/noticia">Noticias</a></li>
+          <li class="dropdown"><a href="category.html"><span>Categorias</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="/noticia">Mostrar Todo</a></li>
+              <li><a href="#">Mejores juegos 2023</a></li>
+                <ul>
+                  
+                  
+                </ul>
+              </li>
+              <li><a href="#">Proximos juegos</a></li>
+              <li><a href="#">Tiendas gaming</a></li>
+              <li><a href="#">Mejores paginas para juegos</a></li>
+            </ul>
+          </li>
+
+          <li><a href="/nosotros">Sobre Nosotros</a></li>
+          <li><a href="/contacto">Contactanos</a></li>
+        </ul>
+        {% if user.is_authenticated %}
+        <p style=color:#d81ce9; 
+        >  Bienvenido {{ user.username }}</p> 
+        <a href="{% url 'logout' %}"> Cerrar sesion</a>
+        {% else %}
+        <a href="{% url 'login' %}">Iniciar sesion</a>
+        <a href="{% url 'usuarios:registro' %}">Registrarse</a>
+
+        {% endif %}
+      </nav><!-- .navbar -->
+
+      <div class="position-relative">
+        <a href="#" class="mx-2"><span class="bi-facebook" style="color:#d81ce9"></span></a>
+        <a href="#" class="mx-2"><span class="bi-twitter"style="color:#d81ce9"></span></a>
+        <a href="#" class="mx-2"><span class="bi-instagram"style="color:#d81ce9"></span></a>
+
+        <a href="#" class="mx-2 js-search-open"><span class="bi-search"style="color:#d81ce9"></span></a>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+        <!-- ======= Search Form ======= -->
+        <div class="search-form-wrap js-search-form-wrap">
+          <form action="search-result.html" class="search-form">
+            <span class="icon bi-search"></span>
+            <input type="text" placeholder="Search" class="form-control">
+            <button class="btn js-search-close"><span class="bi-x"></span></button>
+          </form>
+        </div><!-- End Search Form -->
+
+      </div>
+
+    </div>
+
+  </header><!-- End Header -->
+<section style="background-color: #070607 ;">
+  <main id="main">
+    <section>
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-12 text-center mb-5">
+            <h1 class="page-title" style="color: #d81ce9;">Sobre nosotros</h1>
+          </div>
+        </div>
+
+        <div class="row mb-5">
+
+          <div class="d-md-flex post-entry-2 half">
+            <a href="#" class="me-4 thumbnail">
+              <img src="assets/img/post-landscape-2.jpg" alt="" class="img-fluid">
+            </a>
+            <div class="ps-md-5 mt-4 mt-md-0">
+              <div class="post-meta mt-4"style="color: #f3f3f3;">Nosotros</div>
+              <h2 class="mb-4 display-4">Nuestra historia</h2>
+
+              <p style="color: #f3f3f3;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
+              <p style="color: #f3f3f3;">Fugit eaque illum blanditiis, quo exercitationem maiores autem laudantium unde excepturi dolores quasi eos vero harum ipsa quam laborum illo aut facere voluptates aliquam adipisci sapiente beatae ullam. Tempora culpa iusto illum accusantium cum hic quisquam dolor placeat officiis eligendi.</p>
+            </div>
+          </div>
+
+          <div class="d-md-flex post-entry-2 half mt-5">
+            <a href="#" class="me-4 thumbnail order-2">
+              <img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid">
+            </a>
+            <div class="pe-md-5 mt-4 mt-md-0">
+              <div class="post-meta mt-4"style="color: #f3f3f3;" >Proyecto</div>
+              <h2 class="mb-4 display-4" >Nuestros Objetivos</h2>
+
+              <p style="color: #f3f3f3;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
+              <p style="color: #f3f3f3;">Fugit eaque illum blanditiis, quo exercitationem maiores autem laudantium unde excepturi dolores quasi eos vero harum ipsa quam laborum illo aut facere voluptates aliquam adipisci sapiente beatae ullam. Tempora culpa iusto illum accusantium cum hic quisquam dolor placeat officiis eligendi.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  
+    <section class="mb-5 bg-light py-5" style="background-color: #070607 !important;" >
+      <div class="container  " data-aos="fade-up">
+        <div class="row justify-content-between align-items-lg-center">
+          <div class="col-lg-5 mb-4 mb-lg-0" >
+            <h2 class="display-4 mb-4" >Informacion</h2>
+            <p style="color: #f3f3f3;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, rem eaque vel est asperiores iste pariatur placeat molestias, rerum provident ea maiores debitis eum earum esse quas architecto! Minima, voluptatum! Minus tempora distinctio quo sint est blanditiis voluptate eos. Commodi dolore nesciunt culpa adipisci nemo expedita suscipit autem dolorum rerum?</p>
+            <p style="color: #f3f3f3;">At magni dolore ullam odio sapiente ipsam, numquam eius minus animi inventore alias quam fugit corrupti error iste laboriosam dolorum culpa doloremque eligendi repellat iusto vel impedit odit cum. Sequi atque molestias nesciunt rem eum pariatur quibusdam deleniti saepe eius maiores porro quam, praesentium ipsa deserunt laboriosam adipisci. Optio, animi!</p>
+            <p><a href="/noticia" class="more" style="color: #d81ce9;">Click aqui para ver todas las noticias</a></p>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-6">
+                <img src="assets/img/post-portrait-3.jpg" alt="" class="img-fluid mb-4">
+              </div>
+              <div class="col-6 mt-4">
+                <img src="assets/img/post-portrait-4.jpg" alt="" class="img-fluid mb-4">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section>
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <div class="row justify-content-center">
+              <div class="col-lg-6">
+                <h2 class="display-4">Nuestro equipo</h2>
+                <p style="color: #f3f3f3;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil sint sed, fugit distinctio ad eius itaque deserunt doloribus harum excepturi laudantium sit officiis et eaque blanditiis. Dolore natus excepturi recusandae.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 text-center mb-5">
+            <img src="assets/img/person-1.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
+            <h4 style="color: #d81ce9;">Alan Quenardelle</h4>
+            <span class="d-block mb-3 text-uppercase" style="color: #0aacb8;">Founder &amp; CEO</span>
+            <p style="color: #f3f3f3;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid, illo odit magni repudiandae quisquam deserunt tempora nobis sunt. Modi obcaecati quam, ab at incidunt exercitationem. Explicabo vitae veniam placeat tenetur?</p>
+          </div>
+          <div class="col-lg-4 text-center mb-5">
+            <img src="assets/img/person-2.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
+            <h4 style="color: #d81ce9;">Carlos Gomez</h4>
+            <span class="d-block mb-3 text-uppercase" style="color: #0aacb8;">Founder, VP</span>
+            <p style="color: #f3f3f3;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
+          </div>
+          <div class="col-lg-4 text-center mb-5">
+            <img src="assets/img/person-3.jpg" alt="" class="img-fluid rounded-circle w-50 mb-4">
+            <h4 style="color: #d81ce9;">XXXXXX</h4>
+            <span class="d-block mb-3 text-uppercase" style="color: #0aacb8;">Editor Staff</span>
+            <p style="color: #f3f3f3;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, perspiciatis repellat maxime, adipisci non ipsam at itaque rerum vitae, necessitatibus nulla animi expedita cumque provident inventore? Voluptatum in tempora earum deleniti, culpa odit veniam, ea reiciendis sunt ullam temporibus aut!</p>
+          </div>
+          
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+</section>
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-content">
+      <div class="container">
+
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <h3 class="footer-heading">Sobre nosotros</h3>
+            <p>Somos un grupo dedicados al gaming </p>
+            <p><a href="#" class="footer-link-more">Leer mas</a></p>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">Navegacion</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="noticia"><i class="bi bi-chevron-right"></i> Noticias</a></li>
+              <li><a href="#"><i class="bi bi-chevron-right"></i> Sobre nosotros</a></li>
+              <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contactanos</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">Categorias</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Juegos Indies</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Proximos juegos</a></li>
+
+            </ul>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="container">
+
+        <div class="row justify-content-between">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <div class="copyright">
+              © Copyright <strong><span></span></strong>. All Rights Reserved
+            </div>
+
+            <div class="credits">
+              
+              
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{%static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{%static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{%static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
+{% endblock contenido%}

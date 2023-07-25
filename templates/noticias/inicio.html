@@ -1,0 +1,413 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo%} noticias {% endblock titulo %}
+{% block contenido%}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>ZenBlog Bootstrap Template - Single Post</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS Files -->
+  <link href="{% static '/assets/css/variables.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/css/main.css'   %}" rel="stylesheet">
+
+
+</head>
+
+<body>
+<style> 
+.html{
+white-space:nowrap;
+}
+body {
+display:inline-block;
+overflow-x: hidden;
+margin-left: 15%;
+}
+ </style>
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="/#" class="logo d-flex align-items-center">
+        
+        <img src="{% static 'img/diamond.png'%}" alt=""> 
+         <h1>HARD PIXEL</h1>
+       </a>
+ 
+       <nav id="navbar" class="navbar">
+         <ul>
+           <li><a href="/#">Inicio</a></li>
+           
+           <li><a href="/noticia">Noticias</a></li>
+           <li class="dropdown"><a href=""><span>Categorias</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+             <ul>
+               <li><a href="/noticia">Mostrar Todo</a></li>
+               <li><a href="#">Mejores juegos 2023</a></li>
+                 <ul>
+                   
+                   
+                 </ul>
+               </li>
+               <li><a href="#">Proximos juegos</a></li>
+               <li><a href="#">Tiendas gaming</a></li>
+               <li><a href="#">Mejores paginas para juegos</a></li>
+             </ul>
+           </li>
+ 
+           <li><a href="/nosotros">Sobre Nosotros</a></li>
+           <li><a href="/contacto">Contactanos</a></li>
+         </ul>
+         {% if user.is_authenticated %}
+         <p style=color:#d81ce9; 
+         >  Bienvenido {{ user.username }}</p> 
+         <a href="{% url 'logout' %}"> Cerrar sesion</a>
+         {% else %}
+         <a href="{% url 'login' %}">Iniciar sesion</a>
+         <a href="{% url 'usuarios:registro' %}">Registrarse</a>
+ 
+         {% endif %}
+       </nav><!-- .navbar -->
+ 
+       <div class="position-relative">
+         <a href="#" class="mx-2"><span class="bi-facebook" style="color:#d81ce9"></span></a>
+         <a href="#" class="mx-2"><span class="bi-twitter"style="color:#d81ce9"></span></a>
+         <a href="#" class="mx-2"><span class="bi-instagram"style="color:#d81ce9"></span></a>
+ 
+         <a href="#" class="mx-2 js-search-open"><span class="bi-search"style="color:#d81ce9"></span></a>
+         <i class="bi bi-list mobile-nav-toggle"></i>
+ 
+         <!-- ======= Search Form ======= -->
+         <div class="search-form-wrap js-search-form-wrap">
+           <form action="search-result.html" class="search-form">
+             <span class="icon bi-search"></span>
+             <input type="text" placeholder="Search" class="form-control">
+             <button class="btn js-search-close"><span class="bi-x"></span></button>
+           </form>
+         </div><!-- End Search Form -->
+ 
+       </div>
+ 
+     </div>
+ 
+   </header><!-- End Header -->
+   <section style="background-color: #070607">
+   <main id="main">
+ 
+
+  <main id="main">
+
+<section class="single-post-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 post-content" data-aos="fade-up">
+            
+            
+            {% for noticia in noticias %}
+            
+            <!-- <h2>titulo:<a href="{% url 'noticias:inicio' noticia.pk %}"> <strong>{{ noticia.titulo }}</strong></a></h2>-->
+            
+            <!-- ======= Mejores juego indies 2023 ======= -->
+            <div class="single-post">
+              <div class="post-meta"><span class="date">Juegos Indies</span> <span class="mx-1">&bullet;</span> <span>{{noticia.fecha}}</span></div>
+              <h1 class="mb-5" style="color: #0aacb8;">Cuáles son los mejores videojuegos independientes de 2023? Repasamos algunas de las mejores obras indies publicadas en lo que llevamos de año para PlayStation, Xbox, PC y Switch.</h1>
+              <p style="color: #c7d4d4;"><span class="firstcharacter"style="color: #c7d4d4;">E</span>stamos en pleno ecuador del año, así que es buen momento para echar la vista atrás y comprobar qué nos está dejando este 2023 en materia de videojuegos. Es un ejercicio que en Vandal ya hemos realizado en términos generales, con las mejores superproducciones de lo que llevamos de 2023, pero ahora también toca echarle un vistazo al panorama indie para ver cuáles han sido algunas de las propuestas más interesantes publicadas hasta ahora.</p>
+              <img src="{{noticia.imagen.url}}" alt="" width="800" height="400">
+              
+              <p>{{noticia.categoria_noticia}}</p>
+
+              
+              <figure class="my-4">
+                <img src="assets/img/post-landscape-1.jpg" alt="" class="img-fluid">
+                <figcaption style="color: #c7d4d4;">Presentamos los mejores de este 2023</figcaption>
+              </figure>
+              <p style="color: #c7d4d4;">  <strong style="color: #0aacb8;"> Do Not Feed the Monkeys 2099 </strong> recoge la fórmula del anterior juego del estudio español Fictiorama Studios y le da un toque futurista que le sienta fenomenal a la premisa: volvemos a meternos en la piel de un agente de espionaje que puede observar a individuos a través de cámaras de vigilancia, siempre con la regla de no interactuar con ellos. Esto da lugar a situaciones brillantes, muy bien diseñadas y dibujadas con un genial pixel-art. Han conseguido sacarle más jugo a la ya de por sí interesante idea original.
+                </p>
+              <img src="{% static 'img/monojuegoindie.png' %}" alt="" width="700" height="300">
+              <p style="color: #c7d4d4; margin-top: 5%;">  <strong style="color: #0aacb8;"> Planet of Lana </strong> vamos a embarcarnos en un emotivo viaje donde la ciencia ficción y lo terrenal se encuentran, dando lugar a una experiencia audiovisual increíble que consigue dar en el clavo en prácticamente todos sus aspectos: desde la delicadísima estética hasta el diseño de sus puzles, pasando por su genial banda sonora. Eso sí, donde destaca sobre todo es en su manera de expresar sentimientos sin textos ni voces, sólo a través de onomatopeyas de los personajes que acaban dando forma a un lenguaje propio.
+              </p>
+              <img src="{% static 'img/planetoflana-juego-indie.jpg' %}" alt="" width="700" height="300">
+              <p style="color: #c7d4d4; margin-top: 5%;">  <strong style="color: #0aacb8;"> Darkest Dungeon 2 </strong> Combates divertidísimos que continúa sabiendo cómo ponernos contra las cuerdas. Este nuevo viaje hacia una montaña, siempre presente en el horizonte, es todavía más tenso gracias a una nueva dinámica de relaciones que le da mucha vida a las partidas. Apuesta más por el roguelite que su predecesor y las partidas a veces se hacen demasiado largas, pero es un juego magnífico que los fans del primero no se querrán perder.
+                Dredge.</p>
+                <img src="{% static 'img/darkest-indie.jpg' %}" alt="" width="700" height="300">
+                <div class="single-post">
+
+                  <!-- ======= Proximos juegos indies 2023 ======= -->
+                  <h1 class="mb-5" style="color: #0aacb8; margin-top: 5%; ">Cuáles son los juegos que estan por salir? La producción de videojuegos independientes de este año promete, y mucho. Ojo a estos proximos juegos previstos para estrenarse este 2023, porque merece la pena no perderlos de vista. </h1></p>
+                    <p style="color: #c7d4d4;"><span class="firstcharacter"style="color: #c7d4d4;">C</span>on la llegada del nuevo año, y habiendo realizado ya el repaso de los mejores juegos y los mejores indies de 2022, toca echar un vistazo al calendario para comprobar qué nos depara 2023 en términos de videojuegos. Es un ejercicio que ya hemos hecho con las grandes producciones fechadas para este año, pero ¿qué ocurre con los proyectos independientes? Ya hay muchos confirmados (aunque no tantos con fecha fija), así que en Vandal hemos querido realizar un repaso de algunos de los indies más prometedores de 2023.</p>
+                    <img src="{% static 'img/indiesprome.png' %}" alt="" width="800" height="400"> </div>
+                    <p style="color: #c7d4d4; margin-top: 5%;">  <strong style="color: #0aacb8; "> Antonblast </strong> es uno de esos juegos que viene a demostrar que la nostalgia ya no mira sólo a los años 80, sino que ha dado unos pasos más allá para rendir homenaje a juegos incluso de la época de GameBoy Advance. Estamos ante un juego de acción lateral con pixel art de colores saturados, un título adrenalínico y frenético en el que controlamos a un obrero que va por ahí destrozándolo todo. Nuestra es la decisión: podemos avanzar como pollo sin cabeza o bien detenernos para exprimir cada rincón de sus 12 mundos.
+                    </p>
+                  <img src="{% static 'img/anton-indie.jpg' %}" alt="" width="700" height="300">
+                  <p style="color: #c7d4d4; margin-top: 5%;">  <strong style="color: #0aacb8;"> Another Crab's Treasure </strong> Aggro Crab, desarrolladores del magnífico Going Under, trabajan ya en su segundo proyecto independiente. En esta ocasión apuestan por un género en alza, el soulslike, y se lo llevan al fondo del mar: en Another Crab's Treasure nos pondremos en la piel de un cangrejo ermitaño en una misión que le llevará a enfrentarse a todo tipo de criaturas abisales. Si en Going Under podíamos usar cualquier cosa como arma, aquí podremos escoger entre una amplia variedad de objetos que utilizar como caparazón, cada uno con sus peculiaridades.
+                  </p>
+                  <img src="{% static 'img/crab-indie.jpg' %}" alt="" width="700" height="300">
+                  <p style="color: #c7d4d4; margin-top: 5%;">  <strong style="color: #0aacb8;"> </p>
+                  
+
+                  <!-- ======= Tiendas Gamer ======= -->
+                    <h1 class="mb-5" style="color: #0aacb8; margin-top: 5%; ">Cuales son las mejores paginas para comprar perifericos o hardware? Sabemos que al comprar por internet se debe tener en cuenta que la pagina sea confiable y que tenga buenos precios</h1></p>
+                    <p style="color: #c7d4d4;"><span class="firstcharacter"style="color: #c7d4d4; font-size: 300%;  "    >T</span> e presentamos unas de las mas altas recomendables a nivel nacional y las que tienen demasiada reputacion y los tiempos de entrega son increiblementes rapidos!.</p>
+                    <img src="{% static 'img/gamer.jpg' %}" alt="" width="800" height="400"> </div>
+                    <p style="color: #c7d4d4; margin-top: 5%;">  <strong style="color: #0aacb8; "> Venex </strong> Somos lo que querés, cuando querés, donde querés.Contamos con los mejores productos en tecnología.
+                    </p>
+                  <img src="{% static 'img/venex.jpg' %}" alt="" width="700" height="300">
+                  <p style="color: #c7d4d4; margin-top: 5%;">  <strong style="color: #0aacb8;"> Compra Gamer </strong> Portal web de compra de artículos de computación con variedad para el público gamer y entusiasta.</p>
+                  <img src="{% static 'img/compragamer.jpg' %}" alt="" width="700" height="300">
+                  <p style="color: #c7d4d4; margin-top: 5%;">  <strong style="color: #0aacb8;"> </p>
+                    <!-- ======= Comprar juegos ======= -->
+                    <h1 class="mb-5" style="color: #0aacb8; margin-top: 5%; ">Mejores tiendas en internet para comprar juegos? Nosotros tambien somos gamer y siempre recomendamos descargar por paginas confiables , te interesa saber cuales son?</h1></p>
+                    <p style="color: #c7d4d4;"><span class="firstcharacter"style="color: #c7d4d4; font-size: 300%;  "    >A</span> continuacion les mostraremos las paginas mas famosas donde se comprar y descargan los juegos mas famosos de internet.</p>
+                    <img src="{% static 'img/juegos.jpg' %}" style="margin-left: 10%;" alt="" width="800" height="400"> </div>
+                    <p style="color: #c7d4d4; margin-top: 5%; margin-left: 10%;">  <strong style="color: #0aacb8; "> Steam </strong> Somos lo que querés, cuando querés, donde querés.Contamos con los mejores productos en tecnología.
+                    </p>
+                  <img src="{% static 'img/steampagina2.png' %}" style="margin-left: 10%;" alt="" width="700" height="300">
+                  <p style="color: #c7d4d4; margin-top: 5%; margin-left: 10%;">  <strong style="color: #0aacb8;"> Instant Gaming </strong> Portal web de compra de artículos de computación con variedad para el público gamer y entusiasta.</p>
+                  <img src="{% static 'img/instant.jpg' %}"  style="margin-left: 10%;"alt="" width="700" height="300">
+                  <p style="color: #c7d4d4; margin-top: 5%; margin-left: 10%;">  <strong style="color: #0aacb8;">G2A </strong> Portal web de compra de artículos de computación con variedad para el público gamer y entusiasta.</p>
+                  <img src="{% static 'img/G2A-logo.png' %}" alt="" width="700" height="300" style="margin-left: 10%;">
+
+              <!-- End Single Post Content -->
+
+            <!-- ======= Comments ======= -->
+            <div class="comments">
+              <h5 class="comment-title py-4" style="color: #c7d4d4;">2 Comments</h5>
+              <div class="comment d-flex mb-4">
+                <div class="flex-shrink-0">
+                  <div class="avatar avatar-sm rounded-circle">
+                    <img class="avatar-img" src="assets/img/person-5.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+                <div class="flex-grow-1 ms-2 ms-sm-3">
+                  <div class="comment-meta d-flex align-items-baseline">
+                    <h6 class="me-2"style="color: #c7d4d4;">Jordan Singer</h6>
+                    <span class="text-muted"style="color: #c7d4d4;">2d</span>
+                  </div>
+                  <div class="comment-body"style="color: #c7d4d4;">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non minima ipsum at amet doloremque qui magni, placeat deserunt pariatur itaque laudantium impedit aliquam eligendi repellendus excepturi quibusdam nobis esse accusantium.
+                  </div>
+
+                  <div class="comment-replies bg-light p-3 mt-3 rounded">
+                    <h6 class="comment-replies-title mb-4 text-muted text-uppercase">2 replies</h6>
+
+                    <div class="reply d-flex mb-4">
+                      <div class="flex-shrink-0">
+                        <div class="avatar avatar-sm rounded-circle">
+                          <img class="avatar-img" src="assets/img/person-4.jpg" alt="" class="img-fluid">
+                        </div>
+                      </div>
+                      <div class="flex-grow-1 ms-2 ms-sm-3">
+                        <div class="reply-meta d-flex align-items-baseline">
+                          <h6 class="mb-0 me-2"style="color: #000;">Brandon Smith</h6>
+                          <span class="text-muted"style="color: #c7d4d4;">2d</span>
+                        </div>
+                        <div class="reply-body"style="color: #000;">
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="reply d-flex">
+                      <div class="flex-shrink-0">
+                        <div class="avatar avatar-sm rounded-circle">
+                          <img class="avatar-img" src="assets/img/person-3.jpg" alt="" class="img-fluid">
+                        </div>
+                      </div>
+                      <div class="flex-grow-1 ms-2 ms-sm-3">
+                        <div class="reply-meta d-flex align-items-baseline">
+                          <h6 class="mb-0 me-2"style="color: #000;">James Parsons</h6>
+                          <span class="text-muted"style="color: #c7d4d4;">1d</span>
+                        </div>
+                        <div class="reply-body"style="color: #000;">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolore sed eos sapiente, praesentium.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="comment d-flex">
+                <div class="flex-shrink-0">
+                  <div class="avatar avatar-sm rounded-circle">
+                    <img class="avatar-img" src="assets/img/person-2.jpg" alt="" class="img-fluid">
+                  </div>
+                </div>
+                <div class="flex-shrink-1 ms-2 ms-sm-3">
+                  <div class="comment-meta d-flex">
+                    <h6 class="me-2"style="color: #c7d4d4;">Santiago Roberts</h6>
+                    <span class="text-muted"style="color: #c7d4d4;">4d</span>
+                  </div>
+                  <div class="comment-body"style="color: #c7d4d4;">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto laborum in corrupti dolorum, quas delectus nobis porro accusantium molestias sequi.
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Comments -->
+
+            <!-- ======= Comments Form ======= -->
+
+            <form action=" {% url 'noticias:comentar' %} " method="POST"> {% csrf_token %}
+
+              <textarea name="comentario" required id="" cols="30" rows="3"></textarea>
+              <input type="text" name="id_noticia" value="{{ noticia.pk}}" hidden="">
+              <input type="submit" value="comentar">
+              
+              </form>
+              <h3>Comentarios</h3>
+              {% for comentario in comentarios %}
+              
+              <p><strong>{{ comentario.usuario}}</strong> {{ comentario.fecha}} </p>
+              <p>Comentario: {{comentario.text}} </p>
+              {% endfor %}
+
+              
+
+
+
+            <div class="row justify-content-center mt-5">
+
+              <div class="col-lg-12">
+                <h5 class="comment-title"style="color: #c7d4d4;">Deja un comentario</h5>
+                <div class="row">
+                  <div class="col-lg-6 mb-3">
+                    <label for="comment-name"style="color: #c7d4d4;">Nombre</label>
+                    <input type="text" class="form-control" id="comment-name" placeholder="Ingrese su nombre">
+                  </div>
+                  <div class="col-lg-6 mb-3"style="color: #c7d4d4;">
+                    <label for="comment-email"style="color: #c7d4d4;">Correo</label>
+                    <input type="text" class="form-control" id="comment-email" placeholder="Ingrese su correo">
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="comment-message"style="color: #c7d4d4;">Mensaje</label>
+
+                    <textarea class="form-control" id="comment-message" placeholder="Ingrese su nombre" cols="30" rows="10"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <input style="background-color: #d81ce9; color: #000;"type="submit" class="btn btn-primary" value="Enviar">
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Comments Form -->
+
+          </div>
+          
+           
+
+              
+          
+  </main><!-- End #main -->
+</section>
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="footer-content">
+      <div class="container">
+
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <h3 class="footer-heading">Sobre nosotros</h3>
+            <p>Somos un grupo dedicados al gaming </p>
+            <p><a href="/nosotros" class="footer-link-more">Leer mas</a></p>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">Navegacion</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="noticia"><i class="bi bi-chevron-right"></i> Noticias</a></li>
+              <li><a href="about.html"><i class="bi bi-chevron-right"></i> Sobre nosotros</a></li>
+              <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contactanos</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h3 class="footer-heading">Categorias</h3>
+            <ul class="footer-links list-unstyled">
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Juegos Indies</a></li>
+              <li><a href="category.html"><i class="bi bi-chevron-right"></i> Proximos juegos</a></li>
+
+            </ul>
+          </div>
+
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="container">
+
+        <div class="row justify-content-between">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <div class="copyright">
+              © Copyright <strong><span></span></strong>. All Rights Reserved
+            </div>
+
+            <div class="credits">
+              
+              
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+   <!-- Vendor JS Files -->
+   <script src="{%static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{%static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+   <script src="{%static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+   <script src="{%static 'assets/vendor/aos/aos.js' %}"></script>
+   
+ 
+   <!-- Template Main JS File -->
+   <script src="{%static 'assets/js/main.js' %}"></script>
+
+</body>
+
+{% endfor %}
+{% endblock contenido%}
+</html>
+
+
+  
